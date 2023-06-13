@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="shortcut icon" href="Img/rayo.ico">
+  <title>Rayo Makween Taller</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+    {% load static %}
+    <link href="{% static 'CSS/Nosotros.css'%}" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #a0191f;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><img src="{% static 'Img/logotallerrayomkeen.png'%}" alt="Rayo Makween" width="40"
+            height="34">Rayo Makween</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="Index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="Nosotros.html">Nosotros</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Trabajos
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="trabajosR.html">Trabajos realizados</a></li>
+                <li><a class="dropdown-item" href="Agendar.html">Agendar mantenimiento</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav mb-2 mb-lg-0 justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link" href="Login.html">Login</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <div class="input-group">
+              <input class="form-control" type="search" placeholder="Buscar" aria-label="Search">
+              <button class="btn btn-light" type="submit">Buscar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+
+  <section>
+    <h1 class="text-center">EQUIPO RAYO MAKWEEN</h1>
+
+    <div class="container mt-5">
+     
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{% static 'Img/Sabando.png'%}" style="max-width: 100%; aspect-ratio: 4/3;">
+            <div class="card-body">
+              <h2>Nicolás Sabando</h2>
+              <h5>Especialista en Electrónica Automotriz</h5>
+              <br>
+              <p>Experiencia en la reparación y mantenimiento de sistemas electrónicos automotrices, tales como sistemas de inyección de combustible, sistemas de frenos ABS, sistemas de control de tracción, sistemas de airbag, entre otros.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{% static 'Img/Soto.jpg'%}" style="max-width: 100%; aspect-ratio: 4/3;">
+            <div class="card-body">
+              <h2>Nicolás Soto</h2>
+              <h5>Especialista en Caja de Cambios</h5>
+              <br>
+              <p>Experiencia en la reparación y mantenimiento de cajas de cambios manuales y automáticas, y puede diagnosticar y solucionar problemas como problemas de sincronización, problemas de embrague, problemas de deslizamiento, etc.</p>
+             </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{% static 'Img/Jofre.jpg'%}" style="max-width: 100%; aspect-ratio: 4/3;">
+            <div class="card-body">
+               <h2>Álvaro Jofre</h2>
+               <h5>Especialista en Suspensión y Dirección</h5>
+               <br>
+               <p>Experiencia en la reparación y mantenimiento de sistemas de suspensión y dirección, y puede diagnosticar y solucionar problemas como vibraciones, desgaste de neumáticos, dirección dura, etc.</p>
+               </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<div id="ventana-float">
+  <span id="contador">1</span> personas en línea
+</div>
+  <footer>
+    <div class="container2">
+      <div class="logo">
+        <img src="{% static 'Img/logotallerrayomkeen.png'%}" alt="Logo de Rayo Makween">
+      </div>
+      <script src="{% static 'JS/Index.js'%}"></script>
+      <div class="info">
+        <h3>Rayo Makween</h3>
+        <p>Taller mecánico</p>
+        <p>Calle Diosito, Santiago</p>
+        <p>Teléfono: (569) 5555-5555</p>
+        <p>Correo electrónico: info@rayomakween.com</p>
+      </div>
+      <div class="social">
+        <h3>Síguenos en redes sociales</h3>
+        <ul>
+          <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="https://twitter.com/flatfis48779026"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
