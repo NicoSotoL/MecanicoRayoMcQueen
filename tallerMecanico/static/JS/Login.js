@@ -18,7 +18,7 @@ if (!passwordRegex.test(password)) {
   return false;
 }
 
-window.location.href = "Index.html";
+window.location.href = "{% url 'index'%}";
 
 return true;
 }
