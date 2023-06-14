@@ -20,3 +20,15 @@ def login(request):
 def registro(request):
     context={}
     return render(request, 'tallerMecanico/registro.html', context)
+
+def modificar(request):
+    context={}
+    return render(request, 'tallerMecanico/ModificarT.html', context)
+
+def trabajos(request):
+    context={}
+    return render(request, 'tallerMecanico/TrabajosR.html', context)
+
+def eliminaragendamiento(request):
+    context={}
+    return render(request, 'tallerMecanico/EliminarA.html', context)
