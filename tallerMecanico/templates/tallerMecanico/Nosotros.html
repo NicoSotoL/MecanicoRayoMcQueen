@@ -33,10 +33,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="Index.html">Inicio</a>
+              <a class="nav-link" aria-current="page" href="{% url 'index'%}">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="Nosotros.html">Nosotros</a>
+              <a class="nav-link disabled" href="{url 'nosotros' %}">Nosotros</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -44,14 +44,14 @@
                 Trabajos
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="trabajosR.html">Trabajos realizados</a></li>
-                <li><a class="dropdown-item" href="Agendar.html">Agendar mantenimiento</a></li>
+                <li><a class="dropdown-item" href="{url 'trabajosR' %}">Trabajos realizados</a></li>
+                <li><a class="dropdown-item" href="{url 'agendar' %}">Agendar mantenimiento</a></li>
               </ul>
             </li>
           </ul>
           <ul class="navbar-nav mb-2 mb-lg-0 justify-content-end">
             <li class="nav-item">
-              <a class="nav-link" href="Login.html">Login</a>
+              <a class="nav-link" href="{url 'login' %}">Login</a>
             </li>
           </ul>
           <form class="d-flex">
