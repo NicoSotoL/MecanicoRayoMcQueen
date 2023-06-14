@@ -12,3 +12,11 @@ def nosotros(request):
 def agendar(request):
     context={}
     return render(request, 'tallerMecanico/agendar.html', context)
+
+def login(request):
+    context={}
+    return render(request, 'tallerMecanico/login.html', context)
+
+def registro(request):
+    context={}
+    return render(request, 'tallerMecanico/registro.html', context)

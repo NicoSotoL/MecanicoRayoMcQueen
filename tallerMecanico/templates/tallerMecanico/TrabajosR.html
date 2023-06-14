@@ -42,54 +42,10 @@
 <body>
 
   <header>
-
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #a0191f;">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="Index.html"><img src="Img/logotallerrayomkeen.png" alt="Rayo Makween" width="40"
-            height="34">Rayo Makween</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="Index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Nosotros.html">Nosotros</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Trabajos
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item disabled" href="trabajosR.html">Trabajos realizados</a></li>
-                <li><a class="dropdown-item" href="Agendar.html">Agendar mantenimiento</a></li>
-              </ul>
-            </li>
-          </ul>
-          <ul class="navbar-nav mb-2 mb-lg-0 justify-content-end">
-            <li class="nav-item">
-              <a class="nav-link" href="Login.html">Login</a>
-            </li>
-          </ul>
-          <form class="d-flex">
-            <div class="input-group">
-              <input class="form-control" type="search" placeholder="Buscar" aria-label="Search">
-              <button class="btn btn-light" type="submit">Buscar</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </nav>
-
+    {% include 'tallerMecanico/navbar.html' %}
   </header>
-
   
-  
-  <div class="filter-container">
+    <div class="filter-container">
     <h2>Encuentra un mecánico:</h2>
     <form>
       <div class="search-container">
@@ -334,28 +290,8 @@
 <div id="ventana-float">
   <span id="contador">1</span> personas en línea
 </div>
-<footer >
-  <div class="container2">
-    <div class="logo">
-      <img src="Img/logotallerrayomkeen.png" alt="Logo de Rayo Makween">
-    </div>
-    <div class="info">
-      <h3>Rayo Makween</h3>
-      <p>Taller mecánico</p>
-      <p>Calle Merced 014, Santiago</p>
-      <p>Teléfono: (569) 5555-5555</p>
-      <p>Correo electrónico: contacto@rayomakween.com</p>
-    </div>
-    <div class="social">
-      <h3>Síguenos en redes sociales</h3>
-      <ul>
-        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-        <li><a href="https://twitter.com/flatfis48779026"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-      </ul>
-    </div>
-  </div>
-
+<footer>
+  {% include 'tallerMecanico/footer.html' %}
 </footer>
 </body>
 
