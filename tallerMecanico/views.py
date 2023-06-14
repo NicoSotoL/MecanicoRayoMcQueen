@@ -8,3 +8,7 @@ def index(request):
 def nosotros(request):
     context={}
     return render(request, 'tallerMecanico/nosotros.html', context)
+
+def agendar(request):
+    context={}
+    return render(request, 'tallerMecanico/agendar.html', context)
