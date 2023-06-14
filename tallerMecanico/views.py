@@ -1,4 +1,11 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from .Resennas import generar_resennas_azar
+
+def generar_resennas(request):
+    cantidad = 10 
+    generar_resennas_azar(cantidad)
+    return HttpResponse("Reseñas generadas con éxito.")
 
 # Create your views here.
 def index(request):

@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+class Resenna(models.Model):
+    texto = models.TextField()
+    calificacion = models.IntegerField()
