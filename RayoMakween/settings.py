@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'RayoMakween.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'RayoMkween.db',
+        'NAME': 'RayoMakween.db',
     }
 }
 
