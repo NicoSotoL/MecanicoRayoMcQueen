@@ -4,7 +4,7 @@ from .models import Contacto, Publicacion
 class PublicacionForm(forms.ModelForm):
     class Meta:
         model = Publicacion
-        fields = ('titulo', 'contenido')
+        fields = ('titulo', 'contenido','imagen')
 
 
 class ContactoForm(forms.ModelForm):
