@@ -1,5 +1,10 @@
 from django import forms
-from .models import Contacto
+from .models import Contacto, Publicacion
+
+class PublicacionForm(forms.ModelForm):
+    class Meta:
+        model = Publicacion
+        fields = ('titulo', 'contenido')
 
 
 class ContactoForm(forms.ModelForm):

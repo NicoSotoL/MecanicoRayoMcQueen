@@ -1,0 +1,12 @@
+<!-- detalle_publicacion.html -->
+
+<div class="publicacion">
+    <h2>{{ publicacion.titulo }}</h2>
+    <p>{{ publicacion.contenido }}</p>
+    {% if publicacion.imagen %}
+      <img src="{{ publicacion.imagen.url }}" alt="{{ publicacion.titulo }}">
+    {% endif %}
+  </div>
+  <a href="{% url 'editar_publicacion' publicacion.pk %}">Editar</a>
+  <a href="{% url 'eliminar_publicacion' publicacion.pk %}">Eliminar</a>
+  

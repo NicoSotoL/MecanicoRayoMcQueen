@@ -1,27 +1,64 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.http import HttpResponse
-from .Resennas import generar_resennas_azar
-from .models import Mecanico
+from django.contrib.auth import login as auth_login  # Renombrar la función login
+from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
+from django.db import IntegrityError
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Publicacion
+from .forms import PublicacionForm
 
-def generar_resennas(request):
-    cantidad = 10 
-    generar_resennas_azar(cantidad)
-    return HttpResponse("Reseñas generadas con éxito.")
+def lista_publicaciones(request):
+    publicaciones = Publicacion.objects.all()
+    return render(request, 'lista_publicaciones.html', {'publicaciones': publicaciones})
+
+def detalle_publicacion(request, pk):
+    publicacion = get_object_or_404(Publicacion, pk=pk)
+    return render(request, 'detalle_publicacion.html', {'publicacion': publicacion})
+
+def nueva_publicacion(request):
+    if request.method == 'POST':
+        form = PublicacionForm(request.POST)
+        if form.is_valid():
+            publicacion = form.save()
+            return redirect('detalle_publicacion', pk=publicacion.pk)
+    else:
+        form = PublicacionForm()
+    return render(request, 'nueva_publicacion.html', {'form': form})
+
+def editar_publicacion(request, pk):
+    publicacion = get_object_or_404(Publicacion, pk=pk)
+    if request.method == 'POST':
+        form = PublicacionForm(request.POST, instance=publicacion)
+        if form.is_valid():
+            publicacion = form.save()
+            return redirect('detalle_publicacion', pk=publicacion.pk)
+    else:
+        form = PublicacionForm(instance=publicacion)
+    return render(request, 'editar_publicacion.html', {'form': form})
+
+def eliminar_publicacion(request, pk):
+    publicacion = get_object_or_404(Publicacion, pk=pk)
+    if request.method == 'POST':
+        publicacion.delete()
+        return redirect('lista_publicaciones')
+    return render(request, 'eliminar_publicacion.html', {'publicacion': publicacion})
 
 def index(request):
-    context={}
+    context = {}
     return render(request, 'index.html', context)
 
+
 def nosotros(request):
-    context={}
+    context = {}
     return render(request, 'nosotros.html', context)
 
+
 def agendar(request):
-    context={}
+    context = {}
     return render(request, 'agendar.html', context)
+
 
 @csrf_protect
 def login(request):
@@ -44,30 +81,52 @@ def login(request):
 
     return render(request, 'login.html')
 
-def registro(request):
-    context={}
-    return render(request, 'registro.html', context)
 
+def registro(request):
+    if request.method == 'GET':
+        return render(request, 'registro.html', {
+            'form': UserCreationForm
+        })
+    else:
+        if request.POST['password1'] == request.POST['password2']:
+            try:
+                user = User.objects.create_user(
+                    username=request.POST['username'], password=request.POST['password1'])
+                user.save()
+                auth_login(request, user)  # Utilizar el nombre renombrado
+                return redirect('index')    
+            except IntegrityError:
+                return render(request, 'registro.html', {
+                    'form': UserCreationForm,
+                    "error": 'Usuario ya existe'
+                })
+
+        return render(request, 'registro.html', {
+            'form': UserCreationForm,
+            "error": 'Contraseñas no coinciden'
+        })
 def modificar(request):
-    context={}
+    context = {}
     return render(request, 'ModificarT.html', context)
 
+
 def trabajos(request):
-    context={}
+    context = {}
     return render(request, 'TrabajosR.html', context)
 
+
 def eliminaragendamiento(request):
-    context={}
+    context = {}
     return render(request, 'EliminarA.html', context)
 
-def pruebas(request):
-    mecanicosList = Mecanico.objects.all()
-    return render(request, 'Pruebas.html', {"mecanicos":mecanicosList})
 
+@login_required
 def indexA(request):
-    context={}
+    context = {}
     return render(request, 'indexA.html', context)
 
+
+@login_required
 def indexM(request):
-    context={}
+    context = {}
     return render(request, 'indexM.html', context)
