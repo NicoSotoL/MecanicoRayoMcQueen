@@ -26,7 +26,8 @@
         <div class="card shadow-sm">
           <div class="card-body">
             <h4 class="card-title text-center mb-4">Iniciar sesión</h4>
-            <form action="#" method="post" name="loginForm" onsubmit="return validateLoginForm()">
+            <form action="{% url 'login'%}" method="post" name="loginForm" onsubmit="">
+              {% csrf_token %}
               <div class="mb-3">
                 <label for="email" class="form-label">Correo electrónico</label>
                 <input type="email" class="form-control" id="email" name="email" required>
@@ -42,16 +43,14 @@
                 </label>
               </div>
               <div class="text-center">
-                <button type="button" class="btn btn-primary" onclick="validateLoginForm()">Iniciar sesión</button>
+                <button type="submit" class="btn btn-primary" >Iniciar sesión</button>
               </div>
             </form>
             <div class="text-center mt-3">
               <a href="#">¿Olvidaste tu contraseña?</a>
-              <a href="LoginA.html" class="btn btn-primary btn-sm">Administrador</a>
             </div>
             <div class="text-center mt-3">
-              <a href="Registro.html">¿Aún no tienes cuenta?</a>
-              <a href="LoginM.html" class="btn btn-primary btn-sm">Mecánico</a>
+              <a href="{% url 'registro'%}">¿Aún no tienes cuenta?</a>
             </div>
           </div>
         </div>
@@ -63,10 +62,12 @@
     <span id="contador">1</span> personas en línea
   </div>
 
-  <script src="{% static 'JS/Login.js'%}"></script>
+  <!-- <script src="{% static 'JS/Login.js'%}"></script> -->
   <footer>
     {% include 'footer.html' %}
   </footer>
 </body>
+
+</html>
 
 </html>
