@@ -1,5 +1,12 @@
 from django.db import models
 
+def imagen(instance, filename):
+    return 'publicaciones/{0}/{1}'.format(instance.titulo, filename)
+
+class Publicacion(models.Model):
+    titulo = models.CharField(max_length=100)
+    contenido = models.TextField()
+    imagen = models.ImageField(upload_to=imagen)
 
 class Contacto(models.Model):
     idContacto = models.AutoField(primary_key=True)
@@ -11,16 +18,9 @@ class Contacto(models.Model):
     def __str__(self):
         return str(self.nombre)
 
+
 class Resenna(models.Model):
     texto = models.TextField()
     calificacion = models.IntegerField()
 
-
-class Mecanico(models.Model):
-    rut = models.CharField(primary_key=True, max_length=8)
-    nombre = models.CharField(max_length=30)
-    apellido = models.CharField(max_length=30)
-
-    def __str__(self):
-        return (self.nombre)+" "+(self.apellido)
 
