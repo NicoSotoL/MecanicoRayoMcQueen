@@ -15,6 +15,10 @@ def index(request):
     context={}
     return render(request, 'index.html', context)
 
+def login1(request):
+    context={}
+    return render(request, 'login1.html', context)
+
 def nosotros(request):
     context={}
     return render(request, 'nosotros.html', context)
