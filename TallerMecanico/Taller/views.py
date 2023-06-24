@@ -5,9 +5,10 @@ from django.contrib.auth import login as auth_login  # Renombrar la función log
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 from django.db import IntegrityError
-from django.shortcuts import render, get_object_or_404, redirect
 from .models import Publicacion
 from .forms import PublicacionForm
+from django.shortcuts import get_object_or_404
+
 
 def lista_publicaciones(request):
     publicaciones = Publicacion.objects.all()
