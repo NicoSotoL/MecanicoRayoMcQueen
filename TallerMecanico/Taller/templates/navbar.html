@@ -1,0 +1,131 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #a0191f;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'index'%}"><img src="{% static 'img/logotallerrayomkeen.png'%}" alt="Rayo Makween" width="40"
+          height="34">Rayo Makween</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'index'%}">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'nosotros'%}">Nosotros</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Trabajos
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'trabajos'%}">Trabajos realizados</a></li>
+              <li><a class="dropdown-item" href="{% url 'agendar'%}">Agendar mantenimiento</a></li>
+              <li><a class="dropdown-item" href="{% url 'lista_publicaciones'%}">Publicaciones</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navbar-nav mb-2 mb-lg-0 justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login'%}">Login</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <div class="input-group">
+            <input class="form-control" type="search" placeholder="Buscar" aria-label="Search" id="campo-busqueda">
+            <button class="btn btn-light" type="submit">Buscar</button>
+          </div>
+          <ul id="lista-sugerencias" class="sugerencias"></ul>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <style>
+    .sugerencias {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    top: calc(100% + 5px);
+    right: 0;
+    background-color: #fff;
+    z-index: 999;
+  }sugerencias li {
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .sugerencias li:hover {
+    background-color: #f2f2f2;
+  }
+  </style>
+  <script>
+  //contador
+    var contadorElemento = document.getElementById('contador');
+    
+    function actualizarContador(numeroPersonas) {
+      contadorElemento.textContent = numeroPersonas;
+    }
+    
+    setInterval(function () {
+      var numeroOnline = Math.floor(Math.random() * 30) + 1;
+      actualizarContador(numeroOnline);
+    }, 1000);
+    //lista de sugerencias
+    var campoBusqueda = document.getElementById('campo-busqueda');
+    var listaSugerencias = document.getElementById('lista-sugerencias');
+    
+    campoBusqueda.addEventListener('input', function () {
+      var consulta = campoBusqueda.value;
+    
+      var sugerencias = obtenerSugerencias(consulta);
+    
+      mostrarSugerencias(sugerencias);
+    });
+    
+    function mostrarSugerencias(sugerencias) {
+      listaSugerencias.innerHTML = '';
+    
+      sugerencias.forEach(function (sugerencia) {
+        var sugerenciaElemento = document.createElement('li');
+        sugerenciaElemento.textContent = sugerencia;
+    
+        sugerenciaElemento.addEventListener('click', function () {
+          campoBusqueda.value = sugerencia;
+          listaSugerencias.innerHTML = '';
+        });
+    
+        listaSugerencias.appendChild(sugerenciaElemento);
+      });
+    
+      listaSugerencias.style.width = campoBusqueda.offsetWidth + 'px';
+    }
+    
+    document.addEventListener('click', function (event) {
+      if (!campoBusqueda.contains(event.target)) {
+        listaSugerencias.innerHTML = '';
+      }
+    });
+    
+    function obtenerSugerencias(consulta) {
+      var sugerencias = [];
+    
+      if (consulta === 'motor') {
+        sugerencias = ['autismo', 'asperger', 'funao'];
+      } else if (consulta === 'choche') {
+        sugerencias = ['esto es una falta de respeto', 'me dicen waton', 'lo editan con editores de video como camtasia studio, adobe premier'];
+      } else if (consulta === 'mecanicos') {
+        sugerencias = ['pastero', 'cocainomano', 'weko'];
+      }
+    
+      return sugerencias;
+    }
+    </script>
+
+  .
